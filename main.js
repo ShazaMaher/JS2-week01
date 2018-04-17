@@ -96,3 +96,51 @@ console.log(carsDanish);
 //print the name of the 3rd repository on the console
 console.log("The name of the 3rd repository is: "+repoList[2].name+", The full name of the 3rd repository is: "+repoList[2].full_name+".");
 
+//make function to check if each name of repolist if it is part of 
+const hyfCurriculum=['Project','HTML-CSS','Node.js','databases','JavaScript1','Git','CommandLine','curriculum','project-api','React','JavaScript2','JavaScript3'];
+
+function searchForHyfCurriculum(curriculum){
+    for(let i=0; i<hyfCurriculum.length;i++){
+        if(curriculum.name===hyfCurriculum[i])
+        {
+            return curriculum.name;
+        }
+    }
+}
+
+const allHyfCurriculum=repoList.filter(searchForHyfCurriculum);
+console.log(allHyfCurriculum);
+
+//Make a <ul> with a <li> for each repository name
+/*let List=document.createElement('ul');
+List.setAttribute('id',(1)+"-id");
+document.getElementById('list-container').appendChild(List);*/
+
+
+function createGroupOfLists(arr){
+    const groupList=[];
+    for(let i=0;i<arr.length;i++)
+    {
+        //create ul for each item in the arr
+        let List=document.createElement('ul');
+        List.setAttribute('id',(i+1)+"-id");
+        //List.appendChild(document.createTextNode(arr[i].name));
+        //create li 
+        let listStargazersItem=document.createElement('li');
+        listStargazersItem.appendChild(document.createTextNode("hi"));
+        List.appendChild(listStargazersItem);
+        let listForksItem=document.createElement('li');
+        listForksItem.appendChild(document.createTextNode(arr[i].forks_count));
+        List.appendChild(listForksItem);
+        let listWatchersItem=document.createElement('li');
+        listWatchersItem.appendChild(document.createTextNode(arr[i].watchers_count));
+        List.appendChild(listWatchersItem);
+        groupList.push(List);
+    }
+    return groupList;
+    
+}
+
+const lists=createGroupOfLists(allHyfCurriculum);
+console.log(lists);
+document.getElementById('list-container').appendChild(lists.forEach(list));
