@@ -54,7 +54,7 @@ function isYellowCar(car){
     return car.color === 'lightyellow';
 }
 
-//function to check if the color of the color isn't Yellow
+//function to check if the color isn't Yellow
 function isNotYellowCar(car){
     return car.color !== 'lightyellow';
 }
@@ -112,35 +112,61 @@ const allHyfCurriculum=repoList.filter(searchForHyfCurriculum);
 console.log(allHyfCurriculum);
 
 //Make a <ul> with a <li> for each repository name
-/*let List=document.createElement('ul');
-List.setAttribute('id',(1)+"-id");
-document.getElementById('list-container').appendChild(List);*/
 
+function createLists(element){
+    const ul = document.createElement('ul');
+   document.querySelector('div').appendChild(ul);
+   ul.textContent=element.name;
 
-function createGroupOfLists(arr){
-    const groupList=[];
-    for(let i=0;i<arr.length;i++)
-    {
-        //create ul for each item in the arr
-        let List=document.createElement('ul');
-        List.setAttribute('id',(i+1)+"-id");
-        //List.appendChild(document.createTextNode(arr[i].name));
-        //create li 
-        let listStargazersItem=document.createElement('li');
-        listStargazersItem.appendChild(document.createTextNode("hi"));
-        List.appendChild(listStargazersItem);
-        let listForksItem=document.createElement('li');
-        listForksItem.appendChild(document.createTextNode(arr[i].forks_count));
-        List.appendChild(listForksItem);
-        let listWatchersItem=document.createElement('li');
-        listWatchersItem.appendChild(document.createTextNode(arr[i].watchers_count));
-        List.appendChild(listWatchersItem);
-        groupList.push(List);
+    for (let i = 0; i < 4; i ++ ) {
+        const li = document.createElement('li');
+        ul.appendChild(li);
+        switch(i) {
+            case 0:
+                li.innerHTML = 'stargazers_count' + ' : ' + element.stargazers_count;
+                break;
+            case 1:
+                li.innerHTML = 'watchers_count' + ' : ' + element.watchers_count
+                ;
+                break;
+            case 2:
+                li.innerHTML = 'language' + ' : ' + element.language;
+                break;
+            case 3:
+                li.innerHTML = 'forks_count' + ' : ' + element.forks_count;
+                break;
+        }   
     }
-    return groupList;
-    
 }
 
+for(let i=0;i<allHyfCurriculum.length;i++){
+    createLists(allHyfCurriculum[i]);
+}
+ /*   for(let i=0;i<arr.length;i++)
+    {
+        //create ul for each item in the arr
+        const ul=document.createElement('ul');
+        document.querySelector('div').appendChild(ul);
+        ul.setAttribute('id',(i+1)+"-id");
+        //List.appendChild(document.createTextNode(arr[i].name));
+        //create li 
+        const listStargazersItem=document.createElement('li');
+        document.querySelector('ul').appendChild(listStargazersItem);
+        listStargazersItem.innerHTML = 'Item' + (i + 1);
+
+        const listForksItem=document.createElement('li');
+        document.querySelector('ul').appendChild(listStargazersItem);
+        listForksItem.innerHTML = 'Item' + (i + 1);
+
+        const listWatchersItem=document.createElement('li');
+        document.querySelector('ul').appendChild(listStargazersItem);
+        listWatchersItem.innerHTML = 'Item' + (i + 1);
+
+        document.getElementById('list-container').appendChild(ul);
+        groupList.push(ul);
+    }
+    return groupList;
+}
 const lists=createGroupOfLists(allHyfCurriculum);
-console.log(lists);
-document.getElementById('list-container').appendChild(lists.forEach(list));
+console.log(lists);*/
+
