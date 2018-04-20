@@ -115,7 +115,7 @@ console.log(allHyfCurriculum);
 
 function createLists(element){
     const ul = document.createElement('ul');
-   document.querySelector('div').appendChild(ul);
+   document.querySelector('nav').appendChild(ul);
    ul.textContent=element.name;
 
     for (let i = 0; i < 4; i ++ ) {
@@ -141,32 +141,6 @@ function createLists(element){
 
 for(let i=0;i<allHyfCurriculum.length;i++){
     createLists(allHyfCurriculum[i]);
+    
 }
- /*   for(let i=0;i<arr.length;i++)
-    {
-        //create ul for each item in the arr
-        const ul=document.createElement('ul');
-        document.querySelector('div').appendChild(ul);
-        ul.setAttribute('id',(i+1)+"-id");
-        //List.appendChild(document.createTextNode(arr[i].name));
-        //create li 
-        const listStargazersItem=document.createElement('li');
-        document.querySelector('ul').appendChild(listStargazersItem);
-        listStargazersItem.innerHTML = 'Item' + (i + 1);
-
-        const listForksItem=document.createElement('li');
-        document.querySelector('ul').appendChild(listStargazersItem);
-        listForksItem.innerHTML = 'Item' + (i + 1);
-
-        const listWatchersItem=document.createElement('li');
-        document.querySelector('ul').appendChild(listStargazersItem);
-        listWatchersItem.innerHTML = 'Item' + (i + 1);
-
-        document.getElementById('list-container').appendChild(ul);
-        groupList.push(ul);
-    }
-    return groupList;
-}
-const lists=createGroupOfLists(allHyfCurriculum);
-console.log(lists);*/
-
+ 
